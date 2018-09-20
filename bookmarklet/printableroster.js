@@ -29,14 +29,14 @@ javascript:(function(){
                     wrap('title', 'parkrun roster')+
                     wrap ('style',
                         '* {font-family:arial, sans-serif}' +
-                        'h1 {text-align: center}' +
                         'table {border-collapse:collapse; width: 100%}' +
-                        'table td {border:1px solid black}'
+                        'td, th {border:1px solid black; width: 33%}'
                     )
                 ) +
                 wrap('body',
-                    wrap('h1', 'parkrun volunteer roster') +
+                    wrap('h1', 'parkrun volunteer roster : ' + jQuery('#ctl00_c_spanEventDate').text()) +
                     wrap('table',
+                        wrap('tr', wrap('th', 'Role') + wrap('th', 'Name') + wrap('th', 'ID')) +
                         data.reduce((html, el)=>{
                             let marshalnumber = el.role == 'Marshal' ? ' ' + marshalcount-- : '';
                             if (el.role == 'Other') el.role = 'Faulty Barcode Checker'; 
